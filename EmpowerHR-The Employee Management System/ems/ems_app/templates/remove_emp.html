@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="container py-5">
+        <div class="text-center">
+            <h1 class="mb-4">Employee Management System</h1>
+            <div class="nav-buttons">
+                <a class="btn btn-primary" href="/all_emp">View All Employees</a>
+                <a class="btn btn-primary" href="/add_emp">Add Employee</a>
+                <a class="btn btn-primary" href="/remove_emp">Remove Employee</a>
+                <a class="btn btn-primary" href="/update_emp">Update Employee</a>
+                <a class="btn btn-primary" href="/filter_emp">Filter Employees</a>
+            </div>
+            <h2 class="table-title my-5">Remove an Employee</h2>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                        <th>Role</th>
+                        <th>Department</th>
+                        <th>Hire Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in emps %}
+                    <tr>
+                        <td>{{emp.emp_id}}</td>
+                        <td>{{emp.first_name}}</td>
+                        <td>{{emp.last_name}}</td>
+                        <td>{{emp.phone}}</td>
+                        <td>{{emp.role}}</td>
+                        <td>{{emp.dept}}</td>
+                        <td>{{emp.hire_date}}</td>
+                        <td>
+                            <a href="/remove_emp/{{emp.id}}" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Remove
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

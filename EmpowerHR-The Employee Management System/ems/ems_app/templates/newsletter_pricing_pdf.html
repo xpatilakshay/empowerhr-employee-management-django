@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to EmpowerHR</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 12px;
+            color: #000;
+        }
+        .container {
+            width: 100%;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .header {
+            background-color: #0052cc;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .content {
+            padding: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 11px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #0052cc;
+            color: white;
+        }
+        .section {
+            border: 1px solid #000;
+            padding: 8px;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            margin-top: 15px;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Welcome to EmpowerHR</h2>
+        </div>
+
+        <div class="content">
+            <p>Hello <strong>{{ email }}</strong>,</p>
+            <p>Thank you for subscribing to <strong>EmpowerHR</strong>, India’s HR management platform.</p>
+            <p>Our pricing plans are as follows:</p>
+
+            <table>
+                <tr>
+                    <th>Plan</th>
+                    <th>Price (INR)</th>
+                    <th>Features</th>
+                </tr>
+                <tr>
+                    <td>Starter</td>
+                    <td>RS 1,499/month</td>
+                    <td>Up to 20 employees</td>
+                </tr>
+                <tr>
+                    <td>Professional</td>
+                    <td>RS 3,999/month</td>
+                    <td>Up to 100 employees, Analytics Dashboard</td>
+                </tr>
+                <tr>
+                    <td>Enterprise</td>
+                    <td>RS 7,999/month</td>
+                    <td>Unlimited employees, Full Support</td>
+                </tr>
+            </table>
+
+            <div class="section">
+                <p><strong>Have Questions?</strong></p>
+                <p>Contact Akshay Rajaram Patil — Founder</p>
+                <p><strong>Email:</strong> akshay434341@gmail.com</p>
+                <p><strong>Phone:</strong> +91-9699999988</p>
+                <p><strong>Hours:</strong> Mon–Fri | 10:00 AM – 6:00 PM IST</p>
+            </div>
+
+            <div class="section">
+                <p><strong>Why Choose EmpowerHR?</strong></p>
+                <p>- Employee management</p>
+                <p>- Attendance & payroll reports</p>
+                <p>- System integration</p>
+                <p>- 24/7 Support</p>
+                <p>- Trusted by 500+ companies</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Thanks for choosing EmpowerHR - Where People Matter.<br>
+            © 2025 EmpowerHR Pvt. Ltd. | All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

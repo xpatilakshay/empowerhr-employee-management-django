@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpowerHR | Employee Management System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --secondary: #3498db;
+        --accent: #e74c3c;
+        --light: #ecf0f1;
+        --dark: #2c3e50;
+        --success: #27ae60;
+        --warning: #f39c12;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo i {
+        font-size: 2rem;
+        color: var(--light);
+      }
+
+      .logo h1 {
+        font-weight: 700;
+        font-size: 1.8rem;
+      }
+
+      .logo span {
+        color: var(--light);
+        font-weight: 300;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .auth-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #c0392b;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-outline:hover {
+        background-color: white;
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(44, 62, 80, 0.9),
+            rgba(44, 62, 80, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5rem 0;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      /* Features Section */
+      .features {
+        padding: 5rem 0;
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-title p {
+        color: #7f8c8d;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background-color: var(--light);
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid var(--secondary);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      /* Dashboard Preview */
+      .dashboard-preview {
+        padding: 5rem 0;
+        background-color: #f5f7fa;
+      }
+
+      .preview-container {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .preview-text {
+        flex: 1;
+      }
+
+      .preview-text h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .preview-text p {
+        margin-bottom: 1.5rem;
+        color: #7f8c8d;
+      }
+
+      .preview-image {
+        flex: 1;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .preview-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .preview-image:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Newsletter Section */
+      .newsletter {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        color: white;
+        text-align: center;
+      }
+
+      .newsletter h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter p {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+
+      .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 1rem;
+      }
+
+      .newsletter-form button {
+        padding: 0.8rem 1.5rem;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      .newsletter-form button:hover {
+        background-color: #c0392b;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 0;
+        background-color: white;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-details {
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--secondary);
+        margin-top: 0.3rem;
+      }
+
+      .contact-form .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--secondary);
+      }
+
+      .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-col h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary);
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-col ul li a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-col ul li a:hover {
+        color: white;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #bdc3c7;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .preview-container {
+          flex-direction: column;
+        }
+
+        .preview-text,
+        .preview-image {
+          flex: none;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .hero h2 {
+          font-size: 2.5rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .newsletter-form input,
+        .newsletter-form button {
+          width: 100%;
+          border-radius: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <i class="fas fa-users-cog"></i>
+          <h1>Empower<span>HR</span></h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="auth-buttons">
+          <a href="/login" class="btn btn-outline">Login</a>
+          <a href="register" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </header>
+
+
+    {% if messages %}
+    <div class="m-0">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0"
+            role="alert">
+  <strong> {{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+        
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+
+        <h2>Modern Employee Management Solution</h2>
+        <p>
+          Streamline your HR processes with our all-in-one platform designed to
+          manage, track, and optimize your workforce efficiently.
+        </p>
+        <div class="hero-buttons">
+          <a href="/login" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Powerful Features</h2>
+          <p>
+            Everything you need to manage your employees effectively in one
+            comprehensive platform
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h3>Add Employees</h3>
+            <p>
+              Easily onboard new employees with our intuitive interface. Collect
+              all necessary information in one place.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-edit"></i>
+            </div>
+            <h3>Update Details</h3>
+            <p>
+              Keep employee records up-to-date with real-time editing
+              capabilities for all employee information.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-minus"></i>
+            </div>
+            <h3>Remove Employees</h3>
+            <p>
+              Manage offboarding processes smoothly with our comprehensive
+              employee removal system.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>View Details</h3>
+            <p>
+              Access complete employee profiles with all relevant information
+              displayed in an organized manner.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Security</h3>
+            <p>
+              Enterprise-grade security to protect your sensitive employee data
+              with role-based access control.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview" id="dashboard">
+      <div class="container">
+        <div class="preview-container">
+          <div class="preview-text">
+            <h2>Intuitive Dashboard</h2>
+            <p>
+              Our clean, modern interface provides quick access to all employee
+              management functions with real-time data visualization.
+            </p>
+            <p>
+              Monitor key HR metrics, manage employee records, and generate
+              reports all from one centralized location.
+            </p>
+            <a href="/login" class="btn btn-primary">Explore Dashboard</a>
+          </div>
+          <div class="preview-image">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Dashboard Preview"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>Stay Updated</h2>
+        <p>
+          Subscribe to our newsletter to receive the latest updates, features,
+          and HR management tips.
+        </p>
+        <form
+          class="newsletter-form"
+          method="POST"
+          action="{% url 'subscribe_newsletter' %}"
+        >
+          {% csrf_token %}
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>
+            Have questions or need assistance? Our team is ready to help you
+            with any inquiries.
+          </p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Business Park<br />Vashi, Navi Mumbai 400701</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 9699998873</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <p>akshay434341@gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form method="POST" action="{% url 'send_mail' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container text-center">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>EmpowerHR</h3>
+            <p>
+              Revolutionizing employee management with cutting-edge technology
+              and intuitive design for businesses of all sizes.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#dashboard">Dashboard</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 EmpowerHR. All rights reserved. |
+            <a class="text-white" href="#">Privacy Policy</a> |
+            <a class="text-white" href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>
