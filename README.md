@@ -31,9 +31,9 @@ EmpowerHR is a web-based Employee Management System developed using the Django f
 
 ## Required Packages
 
-Django==5.2.1
-mysqlclient==2.2.4
-xhtml2pdf
+- Django==5.2.1
+- mysqlclient==2.2.4
+- xhtml2pdf
 
 
 ## 🗂️ Project Home Page
