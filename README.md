@@ -34,18 +34,31 @@ EmpowerHR is a web-based Employee Management System developed using the Django f
 
 ## 🗂️ Project Login Page
 
+![Login](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/login.png?raw=true)
+
 ## 🗂️ Project Register Page
+
+![Register](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/register.png?raw=true)
 
 ## 🗂️ Project View Employees Page
 
+![View Employee](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/view_emp.png?raw=true)
+
 ## 🗂️ Project Add Employees Page
+
+![Add Employee](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/add_emp.png?raw=true)
 
 ## 🗂️ Project Remove Employee Page
 
+![Remove Employee](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/remove_emp.png?raw=true)
+
 ## 🗂️ Project Update Employee Page
+
+![Update Employee](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/Update_emp.png?raw=true)
 
 ## 🗂️ Project Filter Employee Details Page
 
+![Filter Employee](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/0870828bf3cc556bc6ed7c9846403de18670870d/Project%20Screenshots/filter_emp.png?raw=true)
 
 ## 🗂️ Project Structure
 
