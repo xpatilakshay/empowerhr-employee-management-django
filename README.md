@@ -60,3 +60,9 @@ empowerhr/
 │
 ├── manage.py
 └── requirements.txt
+
+
+## 🗂️ Project Screenshots
+
+### Home Page
+![Home_Page](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/5cb67500f461555d4ec9c00adc4e0d3d09629b8c/EmpowerHR-The%20Employee%20Management%20System/EmpowerHR%20Screenshot.png)
