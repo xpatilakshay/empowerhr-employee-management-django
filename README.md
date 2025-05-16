@@ -29,6 +29,24 @@ EmpowerHR is a web-based Employee Management System developed using the Django f
 
 ---
 
+## 🗂️ Project Home Page
+![Home Page](https://github.com/xpatilakshay/empowerhr-employee-management-django/blob/c27a8e84f90ceaf62cf1b96ec8a8b8c57e00660b/Project%20Screenshots/EmpowerHR%20Screenshot.png)
+
+## 🗂️ Project Login Page
+
+## 🗂️ Project Register Page
+
+## 🗂️ Project View Employees Page
+
+## 🗂️ Project Add Employees Page
+
+## 🗂️ Project Remove Employee Page
+
+## 🗂️ Project Update Employee Page
+
+## 🗂️ Project Filter Employee Details Page
+
+
 ## 🗂️ Project Structure
 
 ```plaintext
